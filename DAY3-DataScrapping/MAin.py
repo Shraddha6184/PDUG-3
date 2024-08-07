@@ -4,24 +4,19 @@ import json
 import pandas as pd
 from datetime import datetime, timedelta
 
-# Define the date range
 start_date = datetime(2024, 5, 1)
 end_date = datetime(2024, 6, 30)
 
-# List to collect all the data
 arr_data = []
 
-# Directory to save the file
 directory = 'Day_3'
 if not os.path.exists(directory):
     os.makedirs(directory)
 
-# Loop through each date in the range
 current_date = start_date
 while current_date <= end_date:
     date_str = current_date.strftime('%Y-%m-%d')
 
-    # Update the URL for Maharashtra
     url = "https://vegetablemarketprice.com/api/dataapi/market/maharashtra/daywisedata?date=" + date_str
 
     header = {
@@ -73,14 +68,11 @@ while current_date <= end_date:
     
     current_date += timedelta(days=1)
 
-# Check if any data was collected
 if not arr_data:
     print("No data collected. Please check the API responses.")
 else:
-    # Create a DataFrame
     df = pd.DataFrame(arr_data)
 
-    # Save to CSV
     file_path = os.path.join(directory, "out_maharashtra.csv")
     df.to_csv(file_path, index=False)
     print(f"Data has been successfully saved to {file_path}.")
