@@ -1,2 +1,2 @@
 # PDUG-3
-Python Internship of CEI DESIGN CONSULTACY PVT LTD
+Python Internship of CEI 
