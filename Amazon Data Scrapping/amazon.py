@@ -1,9 +1,3 @@
-
-
-
-
-
-
 import pandas as pd
 import time
 from selenium import webdriver
